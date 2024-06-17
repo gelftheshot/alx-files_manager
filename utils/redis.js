@@ -7,7 +7,7 @@ class RedisClient {
     this.client.connect();
   }
 
-  isalive() {
+  isAlive() {
     return new Promise((resolve, reject) => {
       this.client.ping((error, reply) => {
         if (error) {

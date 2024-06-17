@@ -56,4 +56,4 @@ class RedisClient {
   }
 }
 
-module.exports.redisClient = RedisClient;
+module.exports.RedisClient = redisClient;

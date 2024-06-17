@@ -1,4 +1,6 @@
 
 class DBClient {
-  
+  constructor () {
+    this.
+  }
 }

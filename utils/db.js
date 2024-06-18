@@ -23,3 +23,6 @@ class DBClient {
     return this.db.collection('files').countDocuments();
   }
 }
+
+const dbClient = DBClient();
+export default dbClient;

@@ -8,7 +8,7 @@ class DBClient {
   constructor() {
     MongoClient.connect(url, (err, client) => {
       if (!err) {
-        this.db = client.db(database);
+        this.db = client.db(DB_DATABASE);
       } else {
         this.db = false;
       }

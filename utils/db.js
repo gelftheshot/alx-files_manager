@@ -3,22 +3,17 @@ import MongoClient from 'mongodb';
 const DB_HOST = process.env.DB_HOST || 'localhost';
 const DB_PORT = process.env.DB_PORT || 27017;
 const DB_DATABASE = process.env.DB_DATABASE || 'files_manager';
+const url = `mongodb://${DB_HOST}:${DB_PORT}`;
 class DBClient {
   constructor() {
-    this.url = `mongodb://${DB_HOST}:${DB_PORT}`;
-    this.connect(); 
+    MongoClient.connect(url, (err, client) => {
+      if (!err) {
+        this.db = client.db(database);
+      } else {
+        this.db = false;
+      }
+    });
   }
-
-  async connect() {
-    try {
-      this.client = await MongoClient.connect(this.url, { useNewUrlParser: true, useUnifiedTopology: true });
-      this.db = this.client.db(DB_DATABASE);
-      console.log('Successfully connected to MongoDB');
-    } catch (error) {
-      console.error('Connection to MongoDB failed', error);
-    }
-  }
-}
 
   isAlive() {
     if (this.db) return true;

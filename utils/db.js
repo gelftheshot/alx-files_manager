@@ -23,5 +23,3 @@ class DBClient {
     return this.db.collection('files').countDocuments();
   }
 }
-
-}

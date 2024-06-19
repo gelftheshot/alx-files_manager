@@ -18,10 +18,10 @@ class UsersController {
     }
 
     const hpwd = sha1(userpassword);
-    const newuser = await dbClient.db.collection('user').insertOne({email: useremail, password: hpwd});
+    const newuser = await dbClient.db.collection('user').insertOne({ email: useremail, password: hpwd });
 
     return response.status(200).send({ id: newuser.insertedId, email: useremail });
   }
 }
 
-export default UsersController;
+module.exports = UsersController;
